@@ -1,6 +1,19 @@
 <html>
-    <body style="background-color: lightblue;">
-        <h1>Prize Generator</h1>
-        <p>You win: {{ prize }}</p>
+    <head>
+        <!-- Semantic import -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <!-- Semantic import -->
+    </head>
+    <body style="background-color: lightcyan; color: indigo; text-align: center; font-family: 'Amagro';">
+        <br>
+        <p style="font-size: 72;">Activity Generator</p>
+        <br>
+        <br>
+        <p style="font-size: 30;">Today's activity is: </p>
+        <p style="font-size: 45;">{{ cost }}</p>
+        <p style="font-size: 30;">Have fun!</p>
+        <br>
+        <a class="ui violet button" href="/">New Activity</a>
     </body>
 </html>

@@ -4,7 +4,7 @@ import requests
 
 @app.route('/')
 def index():
-    chars = requests.get('http://service2:5000/get_text').text
-    num = requests.get('http://service3:5000/get_nums').text
-    prize = requests.post('http://service4:5000/prize', json=dict(chars=chars, num=num))
-    return render_template('home.html', prize = prize.text)
+    activity = requests.get('http://service2:5000/get_activity').text
+    location = requests.get('http://service3:5000/get_location').text
+    cost = requests.post('http://service4:5000/cost', json=dict(activity=activity, location=location))
+    return render_template('home.html', cost = cost.text)

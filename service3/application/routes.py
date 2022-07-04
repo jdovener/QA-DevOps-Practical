@@ -1,7 +1,8 @@
-from application import application
-from random import randint
+from application import app
+from flask import Response
+import random
 
-@app.route('/get_nums', methods=['GET'])
-def get_nums():
-    num = randint(100000, 999999)
-    return str(num)
+@app.route('/get_location', methods=['GET'])
+def location():
+    location = random.choice(["Manchester", "Leeds", "Scotland", "London"])
+    return Response(location, mimetype='text/plain')

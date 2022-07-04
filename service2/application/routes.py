@@ -1,9 +1,9 @@
 from application import app
-from random import choice
+from flask import Response
+import random
 
-@app.route('/get_text', methods=['GET'])
-def get_text():
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    text = ''.join(choice(alphabet) for _ in range(3))
-    return text
+@app.route('/get_activity', methods=['GET'])
+def activity():
+    activity = random.choice(["Mini-Golf", "Axe-Throwing", "Escape-Room", "Rock-Climbing", "Ice-Skating"])
+    return Response(activity, mimetype='text/plain')
 

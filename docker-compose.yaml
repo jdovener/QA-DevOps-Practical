@@ -1,25 +1,25 @@
 version: "3.8"
 services:
   service1:
-    image: prize-generator-front:v1
+    image: activity-generator-front:v1
     build: ./service1
     container_name: service1
     networks: 
       - example-net
   service2:
-    image: prize-generator-chars:v1
+    image: activity-generator-activities:v1
     build: ./service2
     container_name: service2
     networks: 
       - example-net
   service3:
-    image: prize-generator-nums:v1
+    image: activity-generator-locations:v1
     build: ./service3
     container_name: service3
     networks: 
       - example-net
   service4:
-    image: prize-generator-prize:v1
+    image: activity-generator-cost:v1
     build: ./service4
     container_name: service4
     networks: 
@@ -30,14 +30,14 @@ services:
     networks:
       - example-net
     volumes:
-      - type: bind
-        source: /nginx.conf
-        target: /etc/nginx/nginx.conf
-      ports:
-        - target: 80
-          published: 80
-          protocol: tcp
-      depends_on:
-       - service1
+    - type: bind
+      source: nginx.conf
+      target: /etc/nginx/nginx.conf
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+    depends_on:
+      - service1
 networks:
   example-net:

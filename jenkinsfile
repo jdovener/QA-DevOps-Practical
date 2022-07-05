@@ -12,7 +12,7 @@ pipeline{
             }
             stage('Prune containers'){
                 steps{
-                    sh "docker container prune -y"
+                    sh "docker container prune -f"
                 }
             }
             stage('Refresh Build'){

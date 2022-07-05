@@ -10,14 +10,9 @@ pipeline{
                     sh "./test.sh"
                 }
             }
-            stage('Prune containers'){
+            stage('Remove existing images'){
                 steps{
-                    sh "docker container prune -f"
-                }
-            }
-            stage('Refresh Build'){
-                steps{
-                    sh "docker-compose down"
+                    sh "docker rmi -f $(sudo docker images -aq)"
                 }
             }
             stage('Build Images'){

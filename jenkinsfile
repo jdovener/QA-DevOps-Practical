@@ -12,9 +12,7 @@ pipeline{
             }
             stage('Remove existing images'){
                 steps{
-                    // sh "docker rmi -rf \$(sudo docker images -aq)"
-                    sh "docker image rm -f \$(sudo docker image ls --filter dangling=true -q)"
-                    sh "docker image rm -f \$(sudo docker image ls -a -q)"
+                    sh "docker system prune --all --volumes --force"
                 }
             }
             stage('Build Images'){

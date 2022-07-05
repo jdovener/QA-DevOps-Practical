@@ -10,6 +10,11 @@ pipeline{
                     sh "./test.sh"
                 }
             }
+            stage('Prune containers'){
+                steps{
+                    sh "docker container prune -y"
+                }
+            }
             stage('Refresh Build'){
                 steps{
                     sh "docker-compose down"

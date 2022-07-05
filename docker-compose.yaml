@@ -31,7 +31,7 @@ services:
       - example-net
     volumes:
     - type: bind
-      source: /home/jimmd/QA-DevOps-Practical/nginx.conf
+      source: nginx.conf
       target: /etc/nginx/nginx.conf
     ports:
       - target: 80

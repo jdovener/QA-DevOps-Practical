@@ -12,7 +12,7 @@ pipeline{
             }
             stage('Remove existing images'){
                 steps{
-                    sh "docker rmi -f \$(sudo docker images -aq)"
+                    sh "docker rmi -rf \$(sudo docker images -aq)"
                 }
             }
             stage('Build Images'){

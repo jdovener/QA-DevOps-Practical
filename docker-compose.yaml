@@ -31,7 +31,7 @@ services:
       - example-net
     volumes:
     - type: bind
-      source: /home/jenkins/.jenkins/workspace/Project2Pipeline
+      source: /home/jenkins/.jenkins/workspace/Project2Pipeline/nginx.conf
       target: /etc/nginx/nginx.conf
     ports:
       - target: 80

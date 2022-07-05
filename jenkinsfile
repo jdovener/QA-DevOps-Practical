@@ -1,0 +1,29 @@
+pipeline{
+        agent any
+        environment {
+            app_version = 'v1'
+            rollback = 'true'
+        }
+        stages{
+            stage('Run Tests'){
+                steps{
+                    sh "./test.sh"
+                }
+            }
+            stage('Refresh Build'){
+                steps{
+                    sh "docker compose down"
+                }
+            }
+            stage('Build Images'){
+                steps{
+                    sh "docker compose build"
+                }
+            }
+            stage('Deploy App'){
+                steps{
+                    sh "docker compose up -d"
+                }
+            }
+        }
+}

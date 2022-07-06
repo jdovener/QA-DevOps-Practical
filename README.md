@@ -104,7 +104,8 @@ A Python3 virtual environment (venv) was used as a development environment. This
   
 Jenkins was used as a build server in order to automate the tests, the various build steps and deployment. This is achieved by creating a pipeline project via Jenkins, the project anisble and Docker Swarm to deploy the application. A webhook is used to continuously integrate changes whenever a commit is pushed to the GitHub Repository.  
   
-Below is an image of the Jenkins stage view. If any stage fails, the subsequent stages will not continue until the issues is fixed. If all stages pass, there are no errors and the application is deployed to the Docker Swarm virtual machines' external IP address.
+Below is an image of the Jenkins stage view. If any stage fails, the subsequent stages will not continue until the issues is fixed. If all stages pass, there are no errors and the application is deployed to the Docker Swarm virtual machines' external IP address.  
+
 ![Jenkins Build](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/Jenkins%20Build.png)
   
 Upon pushing a commit to the GitHub repo, a webhook activate the Jenkins pipeline project, which handles the following steps:
@@ -125,11 +126,11 @@ Once this has been executed, all subsequent executions will result in the IPs be
   
 The purpose of using Docker Swarm is to automatically load balance the various services across the swarm VMs. The two VMs are shown in the below image  
 
-![DockerVMS](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/playbook2.png)
+![DockerVMS](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/DockerVMS.png)
   
 The below image illustrates the structure of the CI/CD pipeline:
 
-![Infrastructure](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/DockerVMS.png)
+![Infrastructure](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/Infrastructure.png)
 
 # Updates
 * 04/07/2022

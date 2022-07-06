@@ -37,7 +37,7 @@ pipeline{
             }
             stage('Deploy App'){
                 steps{
-                    sh "scp docker-composer.yaml jimmd@swarm-manager-project2:/home/jimmd/docker-compose.yaml"
+                    sh "scp docker-compose.yaml jimmd@swarm-manager-project2:/home/jimmd/docker-compose.yaml"
                     sh "scp nginx.conf jimmd@swarm-manager-project2:/home/jimmd/nginx.conf"
                     sh "ssh jimmd@swarm-manager-project2 'docker stack deploy -c docker-compose.yaml FIRST'"
                 }

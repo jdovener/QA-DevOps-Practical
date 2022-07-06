@@ -10,6 +10,11 @@ pipeline{
                     sh "./test.sh"
                 }
             }
+            stage('Ansible playbook run'){
+                steps{
+                    sh "ansible-playbook install_docker.yaml"
+                }
+            }
             stage('Remove existing images'){
                 steps{
                     sh "docker system prune --all --volumes --force"
@@ -20,10 +25,22 @@ pipeline{
                     sh "docker-compose build"
                 }
             }
+            stage('Push to DockerHub'){
+                steps{
+                    sh ""
+                }
+            }
             stage('Deploy App'){
                 steps{
-                    sh "docker-compose up -d"
+                    sh "ssh jimmd@swarm-manager-project2 'docker stack deploy -c docker-compose.yaml'"
                 }
             }
         }
 }
+
+// run Tests
+// ansible playbook run
+// remove images
+// docker-compose build
+// push to dockerhub
+// docker swarm deploy 'docker stack deploy -c docker-compose.yaml'

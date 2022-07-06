@@ -1,0 +1,2 @@
+35.197.219.62 ansible_sudo_pass=password ansible_ssh_user=jimmd
+34.89.23.167 ansible_sudo_pass=password ansible_ssh_user=jimmd

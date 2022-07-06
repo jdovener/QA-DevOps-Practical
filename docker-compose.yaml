@@ -1,25 +1,25 @@
 version: "3.8"
 services:
   service1:
-    image: activity-generator-front:v1
+    image: jdovener/activity-generator-front:v1
     build: ./service1
     container_name: service1
     networks: 
       - example-net
   service2:
-    image: activity-generator-activities:v1
+    image: jdovener/activity-generator-activities:v1
     build: ./service2
     container_name: service2
     networks: 
       - example-net
   service3:
-    image: activity-generator-locations:v1
+    image: jdovener/activity-generator-locations:v1
     build: ./service3
     container_name: service3
     networks: 
       - example-net
   service4:
-    image: activity-generator-cost:v1
+    image: jdovener/activity-generator-cost:v1
     build: ./service4
     container_name: service4
     networks: 

@@ -35,7 +35,7 @@ The tools I will use for each of the constraints are listed below:
 * Reverse Proxy: NGINX
 
 ## Project Planning:  
-A Trello board was created to list and organise the objectives of the project. The inital Trello board is shown below:
+A Trello board was created to list and organise the objectives of the project. The initial Trello board is shown below:
 
 ![Trello Board](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/Trello1.png)
 
@@ -58,7 +58,7 @@ The end user of the application will be myself (The location costs are based on 
   
 The application uses a microservice architecture, explained below:
 * Service 1 - Front-End: This service creates and displays the part of the application that the user interacts with. It sends requests to the other services to generate a activity and location combination.
-* Service 2 - Activity API: This service receives GET requests from service 1 and responds with a randomly selected activity from an array of activites. Each activity has a booking cost value associated with it.
+* Service 2 - Activity API: This service receives GET requests from service 1 and responds with a randomly selected activity from an array of activities. Each activity has a booking cost value associated with it.
 * Service 3 - Location API: This service receives GET requests from service 1 and responds with a randomly selected location from an array of cities. Each location has a travel cost value associated with it.
 * Service 4 - Cost API: This service receives POST requests from service 1, which provides the randomly generated activities and locations as JSON objects. Service 4 combines the activity and the location cost to be displayed as a total cost on the front-end
   
@@ -90,7 +90,7 @@ This command runs pytest on any files beginning with the word 'test'. It also ma
   
 I appended the output of the command used in each of the services to a text file to compile the outputs and produce the above images.  
   
-However, the project is now set up to automatically conduct tests via Jenkins every time a push is made to the GitHub repository.  
+However, the project is now set up to automatically conduct tests via Jenkins every time a push is made to the GitHub repository. These tests can be seen running in the console output of the Jenkins job each time the build is run.  
 
 # CI Pipeline
 
@@ -98,11 +98,13 @@ One of the project constraints required the project to implement a CI pipeline. 
   
 For project tracking, trello was used to create a tracking board. Examples of this and access to the trello board can be found in the [Project Design](#Project-Design) section of this README document.  
   
-Git was used for the version control stage of the pipeline. The project repository was hosted on GitHub. Using Git allows for the project to be built incrementally and saves a history of all previous commits. These previous commits can be rolled back to in the event of errors to allow access to previous versions of the project.  
+Git was used for the version control stage of the pipeline. The project repository was hosted on GitHub. Using Git allows for the project to be built incrementally and saves a history of all previous commits. These previous commits can be rolled back to in the event of errors to allow access to previous versions of the project. An image of the GitHub branch structure is shown below:  
+
+![Branch Structure](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/Branch%20Structure.png)
   
-A Python3 virtual environment (venv) was used as a development environment. This was hosted on a virtual machine (on Google Cloud Platform) running Ubuntu 20.04. A venv allows for seperation of concerns meaning pip installs can be performed without affecting any conflicting pip installs within the same machine.  
+A Python3 virtual environment (venv) was used as a development environment. This was hosted on a virtual machine (on Google Cloud Platform) running Ubuntu 20.04. A venv allows for separation of concerns meaning pip installs can be performed without affecting any conflicting pip installs within the same machine.  
   
-Jenkins was used as a build server in order to automate the tests, the various build steps and deployment. This is achieved by creating a pipeline project via Jenkins, the project anisble and Docker Swarm to deploy the application. A webhook is used to continuously integrate changes whenever a commit is pushed to the GitHub Repository.  
+Jenkins was used as a build server in order to automate the tests, the various build steps and deployment. This is achieved by creating a pipeline project via Jenkins, the project uses Anisble and Docker Swarm to deploy the application. A webhook is used to continuously integrate changes whenever a commit is pushed to the GitHub Repository.  
   
 Below is an image of the Jenkins stage view. If any stage fails, the subsequent stages will not continue until the issues is fixed. If all stages pass, there are no errors and the application is deployed to the Docker Swarm virtual machines' external IP address.  
 

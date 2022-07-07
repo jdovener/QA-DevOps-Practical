@@ -6,24 +6,32 @@ services:
     container_name: service1
     networks: 
       - example-net
+    deploy:
+      replicas: 2
   service2:
     image: jdovener/activity-generator-activities:v1
     build: ./service2
     container_name: service2
     networks: 
       - example-net
+    deploy:
+      replicas: 2
   service3:
     image: jdovener/activity-generator-locations:v1
     build: ./service3
     container_name: service3
     networks: 
       - example-net
+    deploy:
+      replicas: 2
   service4:
     image: jdovener/activity-generator-cost:v1
     build: ./service4
     container_name: service4
     networks: 
       - example-net
+    deploy:
+      replicas: 2
   nginx:
     image: nginx:latest
     container_name: nginx

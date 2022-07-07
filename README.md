@@ -126,6 +126,10 @@ Once this has been executed, all subsequent executions will result in the IPs be
   
 ![playbook2](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/playbook2.png)
   
+Each service has a replica, this is set up via the docker compose file. Replicas are used as a safety net in the event of an issue with a container/image. If one replica is not working, an alternate replica is used to ensure the application is still useable. Below is an image of each service running 2 replicas.  
+
+![Replicas](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/Replicas.png)
+  
 The purpose of using Docker Swarm is to automatically load balance the various services across the swarm VMs. The two VMs are shown in the below image  
 
 ![DockerVMS](https://github.com/jdovener/QA-DevOps-Practical/blob/dev/images/DockerVMS.png)

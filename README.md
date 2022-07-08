@@ -152,6 +152,10 @@ The below image illustrates the structure of the CI/CD pipeline:
     * Various changes to Jenkins pipeline to incorporate for Docker Swarm and Ansible
     * Documentation has been mostly completed
 
+* 07/07/2022
+    * Merged project to main branch
+    * Completed documentation
+
 # Known Issues
 
 * Integration testing has not been implemented. Thorough testing is essential to the production process, future work would include automating integration tests.
